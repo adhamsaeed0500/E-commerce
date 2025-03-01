@@ -1,3 +1,7 @@
+using E_commerce_System.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 namespace E_commerce_System
 {
     public class Program
@@ -9,8 +13,11 @@ namespace E_commerce_System
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
 
+            builder.Services.AddDbContext<ApplicationDbContext>(option=>      
+            option.UseSqlServer(builder.Configuration.GetConnectionString("DC")));
+
+            var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
