@@ -19,6 +19,11 @@ namespace E_commerce_System.Controllers
         }
 
 
+            public IActionResult Create() 
+        {
+            return View();
+        }
+
 
     }
 }
