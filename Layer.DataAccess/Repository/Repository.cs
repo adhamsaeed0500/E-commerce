@@ -1,0 +1,47 @@
+﻿using E_commerce_System.Layer.DataAccess.Repository.IRepository;
+using Layer.DataAccess.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+
+namespace E_commerce_System.Layer.DataAccess.Repository
+{
+    public class Repository<T> : IRepository<T> where T : class
+    {
+        private readonly ApplicationDbContext _db;
+        internal DbSet<T> _dbset;
+
+        public Repository(ApplicationDbContext db)
+        {
+            _db = db;
+            _dbset = _db.Set<T>();
+        }
+        public void Add(T entity)
+        {
+            _dbset.Add(entity);
+        }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            IQueryable<T> query = _dbset;
+            query.Where(filter);
+            return query.FirstOrDefault();
+            
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            IQueryable<T> query = _dbset;
+            return query.ToList();
+        }
+
+        public void Remove(T entity)
+        {
+            _dbset.Remove(entity);
+        }
+
+        public void RemoveRange(IEnumerable<T> entity)
+        {
+            _dbset.RemoveRange(entity);
+        }
+    }
+}
