@@ -1,7 +1,8 @@
-﻿using E_commerce_System.Models;
+﻿
+using Layer.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_commerce_System.Data
+namespace Layer.DataAccess.Data
 {
     public class ApplicationDbContext:DbContext
     {

@@ -1,5 +1,6 @@
-﻿using E_commerce_System.Data;
-using E_commerce_System.Models;
+﻿
+using Layer.DataAccess.Data;
+using Layer.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce_System.Controllers
