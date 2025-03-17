@@ -1,4 +1,6 @@
 
+using E_commerce_System.Layer.DataAccess.Repository.IRepository;
+using E_commerce_System.Layer.DataAccess.Repository;
 using Layer.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +19,7 @@ namespace E_commerce_System
 
             builder.Services.AddDbContext<ApplicationDbContext>(option=>      
             option.UseSqlServer(builder.Configuration.GetConnectionString("DC")));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.
