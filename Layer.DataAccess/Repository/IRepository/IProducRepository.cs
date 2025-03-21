@@ -2,8 +2,8 @@
 
 namespace E_commerce_System.Layer.DataAccess.Repository.IRepository
 {
-    public interface IProducRepository:IRepository<ProductRepository>
+    public interface IProducRepository:IRepository<Product>
     {
-        public void Update(ProductRepository obj);
+        public void Update(Product obj);
     }
 }
