@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce_System.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
 

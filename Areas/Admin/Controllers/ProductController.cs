@@ -6,7 +6,7 @@ namespace E_commerce_System.Areas.Admin.Controllers
 {
    
     
-       // [Area("Admin")]
+        [Area("Admin")]
         public class ProductController : Controller
         {
             private readonly IUnitOfWork _unitOfWork;
