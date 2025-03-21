@@ -1,11 +1,10 @@
-﻿
-using E_commerce_System.Layer.DataAccess.Repository;
+﻿using E_commerce_System.Layer.DataAccess.Repository;
 using E_commerce_System.Layer.DataAccess.Repository.IRepository;
 using Layer.DataAccess.Data;
 using Layer.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace E_commerce_System.Controllers
+namespace E_commerce_System.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
@@ -50,7 +49,7 @@ namespace E_commerce_System.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(x=>x.Id ==id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(x => x.Id == id);
             //Category? categoryFromDb1 = _db.Categories.FirstOrDefault(u => u.Id == id);
             // Category? categoryFromDb2 = _db.Categories.Where(u => u.Id == id).FirstOrDefault();
 
@@ -79,10 +78,10 @@ namespace E_commerce_System.Controllers
         }
 
 
-        
+
         public IActionResult Delete(int? id)
         {
-            Category obj = _unitOfWork.Category.Get(x=>x.Id == id);
+            Category obj = _unitOfWork.Category.Get(x => x.Id == id);
             if (obj == null)
             {
                 return NotFound();

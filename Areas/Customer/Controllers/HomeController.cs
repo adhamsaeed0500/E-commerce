@@ -1,9 +1,8 @@
-
 using Layer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace E_commerce_System.Controllers
+namespace E_commerce_System.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {

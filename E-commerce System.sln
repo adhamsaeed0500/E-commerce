@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-commerce System", "E-commerce System.csproj", "{CF14EC3C-E75A-4CA9-A268-41650CF7D6EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-commerce System", "C:\Users\3\OneDrive\Desktop\E-commerce mvc\E-commerce System\E-commerce System.csproj", "{18B005AC-E6DA-4727-8B3F-B57E13F959A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF14EC3C-E75A-4CA9-A268-41650CF7D6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF14EC3C-E75A-4CA9-A268-41650CF7D6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF14EC3C-E75A-4CA9-A268-41650CF7D6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF14EC3C-E75A-4CA9-A268-41650CF7D6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B005AC-E6DA-4727-8B3F-B57E13F959A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B005AC-E6DA-4727-8B3F-B57E13F959A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B005AC-E6DA-4727-8B3F-B57E13F959A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B005AC-E6DA-4727-8B3F-B57E13F959A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
