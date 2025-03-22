@@ -1,6 +1,8 @@
 ﻿using E_commerce_System.Layer.DataAccess.Repository.IRepository;
 using E_commerce_System.Layer.Models;
+using E_commerce_System.Layer.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace E_commerce_System.Areas.Admin.Controllers
 {
@@ -22,21 +24,40 @@ namespace E_commerce_System.Areas.Admin.Controllers
 
             public IActionResult Create()
             {
-                return View();
-            }
-            [HttpPost]
-            public IActionResult Create(Product obj)
+            ProductVM productVM = new ProductVM
             {
-                if (ModelState.IsValid)
+                CategoryList = _unitOfWork.Category.GetAll()
+                .Select(u => new SelectListItem
                 {
-                    _unitOfWork.Product.Add(obj);
-                    _unitOfWork.Save();
-                    TempData["success"] = "Product created successfully";
-                    return RedirectToAction("Index");
-                }
-                return View();
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                })
+            };
 
+            return View(productVM);
             }
+
+        [HttpPost]
+        public IActionResult Create(ProductVM productVM)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Product.Add(productVM.Product);
+                _unitOfWork.Save();
+                TempData["success"] = "Product created successfully";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                productVM.CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+                return View(productVM);
+            }
+        }
+
 
             public IActionResult Edit(int? id)
             {

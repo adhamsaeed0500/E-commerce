@@ -9,9 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\**" />
+    <Compile Remove="Layer.Models\NewFolder\**" />
     <Content Remove="Controllers\**" />
+    <Content Remove="Layer.Models\NewFolder\**" />
     <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="Layer.Models\NewFolder\**" />
     <None Remove="Controllers\**" />
+    <None Remove="Layer.Models\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
