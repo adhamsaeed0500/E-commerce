@@ -23,9 +23,9 @@ namespace E_commerce_System.Layer.DataAccess.Repository
         public T Get(Expression<Func<T, bool>> filter)
         {
             IQueryable<T> query = _dbset;
-            query.Where(filter);
-            return query.FirstOrDefault();
+           return query.FirstOrDefault(filter);
             
+                            
         }
 
         public IEnumerable<T> GetAll()
