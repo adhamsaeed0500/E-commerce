@@ -3,6 +3,9 @@ using E_commerce_System.Layer.DataAccess.Repository.IRepository;
 using E_commerce_System.Layer.DataAccess.Repository;
 using Layer.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using E_commerce_System.Layer.Models;
+
 
 
 namespace E_commerce_System
@@ -19,7 +22,14 @@ namespace E_commerce_System
 
             builder.Services.AddDbContext<ApplicationDbContext>(option=>      
             option.UseSqlServer(builder.Configuration.GetConnectionString("DC")));
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddScoped<SignInManager<ApplicationUser>>();
+            builder.Services.AddScoped<UserManager<ApplicationUser>>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             var app = builder.Build();
             // Configure the HTTP request pipeline.
@@ -35,6 +45,7 @@ namespace E_commerce_System
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
