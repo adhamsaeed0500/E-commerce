@@ -4,7 +4,9 @@ using E_commerce_System.Layer.DataAccess.Repository;
 using Layer.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using E_commerce_System.Layer.Models;
+
 
 
 
@@ -28,7 +30,9 @@ namespace E_commerce_System
 
             builder.Services.AddScoped<SignInManager<ApplicationUser>>();
             builder.Services.AddScoped<UserManager<ApplicationUser>>();
+            builder.Services.AddScoped<ApplicationUser>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddRazorPages();
 
 
             var app = builder.Build();
@@ -45,8 +49,9 @@ namespace E_commerce_System
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseAuthentication();
+            app.MapRazorPages();
 
             app.MapControllerRoute(
                 name: "default",
