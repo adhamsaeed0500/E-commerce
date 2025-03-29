@@ -2,11 +2,14 @@
 using E_commerce_System.Layer.DataAccess.Repository.IRepository;
 using Layer.DataAccess.Data;
 using Layer.Models;
+using Layer.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerce_System.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
 

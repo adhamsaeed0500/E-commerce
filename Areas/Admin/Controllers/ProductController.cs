@@ -1,6 +1,8 @@
 ﻿using E_commerce_System.Layer.DataAccess.Repository.IRepository;
 using E_commerce_System.Layer.Models;
 using E_commerce_System.Layer.Models.ViewModels;
+using Layer.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -9,7 +11,8 @@ namespace E_commerce_System.Areas.Admin.Controllers
    
     
         [Area("Admin")]
-        public class ProductController : Controller
+    [Authorize(Roles = SD.Role_Admin)]
+    public class ProductController : Controller
         {
             private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _webHostEnvironment;
