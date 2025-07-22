@@ -8,6 +8,7 @@ namespace E_commerce_System.Layer.DataAccess.Repository
     {
         private ApplicationDbContext _db;
         public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
         public ICategoryRepository Category { get; private set; }
         public IProducRepository Product { get; private set; }
 
@@ -16,6 +17,7 @@ namespace E_commerce_System.Layer.DataAccess.Repository
         {
             _db = db;
             ShoppingCart = new ShoppingCartRepository(_db);
+            ApplicationUser = new ApplicationUserRepository(_db);
             Category = new CategoryRepository(_db);
             Product = new ProductRepository(_db);
         }
