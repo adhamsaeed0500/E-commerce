@@ -1,4 +1,5 @@
 ﻿
+using BulkyBook.Models;
 using E_commerce_System.Layer.Models;
 using Layer.Models;
 using Microsoft.AspNetCore.Identity;
@@ -114,6 +115,7 @@ namespace Layer.DataAccess.Data
 
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<Product> Products { get; set; }
 
 
