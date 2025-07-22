@@ -26,9 +26,15 @@ namespace E_commerce_System.Areas.Customer.Controllers
         }
 
         public IActionResult Details(int id)
-        {
-            Product product = _unitOfWork.Product.Get(u => u.Id == id, includeProperties: "Category");
-            return View(product);
+        {          
+
+            ShoppingCart shoppingCart = new ShoppingCart
+            {
+                Product = _unitOfWork.Product.Get(u => u.Id == id, includeProperties: "Category"),
+                Count = 1,
+                ProductId = id
+            };
+            return View(shoppingCart);
         }
 
         public IActionResult Privacy()

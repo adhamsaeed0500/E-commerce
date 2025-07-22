@@ -1,5 +1,5 @@
-﻿using BulkyBook.Models;
-using E_commerce_System.Layer.DataAccess.Repository.IRepository;
+﻿using E_commerce_System.Layer.DataAccess.Repository.IRepository;
+using E_commerce_System.Layer.Models;
 using Layer.DataAccess.Data;
 
 namespace E_commerce_System.Layer.DataAccess.Repository

@@ -1,8 +1,5 @@
-﻿
-using BulkyBook.Models;
-using E_commerce_System.Layer.Models;
+﻿using E_commerce_System.Layer.Models;
 using Layer.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

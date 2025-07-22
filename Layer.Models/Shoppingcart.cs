@@ -1,10 +1,9 @@
-﻿using E_commerce_System.Layer.Models;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace BulkyBook.Models
+namespace E_commerce_System.Layer.Models
 {
     public class ShoppingCart
     {
