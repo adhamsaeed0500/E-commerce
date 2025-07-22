@@ -39,12 +39,19 @@ namespace E_commerce_System.Areas.Customer.Controllers
             return View(shoppingCart);
         }
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult Details(ShoppingCart shoppingCart)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             shoppingCart.ApplicationUserId = userId;
+
+            var cart = new ShoppingCart
+            {
+                ProductId = shoppingCart.ProductId,
+                Count = shoppingCart.Count,
+                ApplicationUserId = userId
+            };
 
             ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.ApplicationUserId == userId &&
            u.ProductId == shoppingCart.ProductId);
@@ -56,8 +63,9 @@ namespace E_commerce_System.Areas.Customer.Controllers
             }
             else
             {
-                _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.ShoppingCart.Add(cart);
             }
+            _unitOfWork.Save();
             TempData["success"] = "Cart updated successfully";
 
             return RedirectToAction(nameof(Index));
