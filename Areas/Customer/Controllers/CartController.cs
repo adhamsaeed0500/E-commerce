@@ -26,7 +26,33 @@ namespace E_commerce_System.Areas.Customer.Controllers
                 includeProperties: "Product")
             };
 
+            foreach (var cart in shoppingCartVM.ShoppingCartList)
+            {
+                cart.Price = GetPriceBasedOnQuantity(cart);
+                shoppingCartVM.OrderTotal += (cart.Price * cart.Count);
+            }
+
             return View(shoppingCartVM);
         }
-    }
+
+        private double GetPriceBasedOnQuantity(ShoppingCart shoppingCart)
+        {
+            if (shoppingCart.Count <= 50)
+            {
+                return shoppingCart.Product.Price;
+            }
+            else
+            {
+                if (shoppingCart.Count <= 100)
+                {
+                    return shoppingCart.Product.Price50;
+                }
+                else
+                {
+                    return shoppingCart.Product.Price100;
+                }
+            }
+        }
+
+        }
 }
